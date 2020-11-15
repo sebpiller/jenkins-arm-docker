@@ -15,4 +15,4 @@ COPY bin/apache-tomcat-* /tomcat
 # Copy Jenkins binaries to tomcat webapps
 COPY bin/jenkins-LATEST.war /tomcat/webapps/jenkins.war
 
-CMD["/tomcat/bin/catalina.sh", "run"]
+CMD [ "/tomcat/bin/catalina.sh", "run"e ]
