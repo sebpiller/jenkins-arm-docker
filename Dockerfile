@@ -6,14 +6,13 @@ MAINTAINER Sébastien Piller <me@sebpiller.ch>
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends default-jdk && \
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends git-all openjdk-11-jdk-headless maven
 
-# Copy data for add-on
-COPY run.sh /
-RUN chmod a+x /run.sh
+# Copy Tomcat binaries
+COPY bin/apache-tomcat-* /tomcat
 
-COPY bin/luke-roberts-lamp-f-cli-LATEST.jar /
+# Copy Jenkins binaries to tomcat webapps
+COPY bin/jenkins-LATEST.war /tomcat/webapps/jenkins.war
 
-# Ok if able to call usage of the command
-HEALTHCHECK CMD java -jar /luke-roberts-lamp-f-cli-LATEST.jar --help
+CMD["/tomcat/bin/catalina.sh", "run"]
