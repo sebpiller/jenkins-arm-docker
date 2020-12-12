@@ -1,9 +1,5 @@
 FROM debian:buster
-
 LABEL arch="armhf|armv7|aarch64|amd64|i386"
-
-MAINTAINER Sébastien Piller <me@sebpiller.ch>
-
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN \
@@ -14,10 +10,9 @@ RUN \
     REL=$(lsb_release -cs) && \
     add-apt-repository "deb https://download.docker.com/linux/debian $REL stable" && \
     apt-get update -y && \
-    apt-get install -y docker-ce-cli containerd.io && \
+    apt-get install -y docker-ce docker-ce-cli containerd.io && \
 
     rm -rf /var/lib/apt/lists/*
-
 
 # Copy Tomcat binaries
 COPY bin/apache-tomcat-* /tomcat
