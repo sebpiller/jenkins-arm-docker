@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN \
     apt-get update -y && \
     apt-get install -y --no-install-recommends --no-install-suggests \
-      openrc wget curl software-properties-common gnupg2 git openjdk-11-jdk-headless maven binfmt-support qemu-user-static && \
+      systemd wget curl software-properties-common gnupg2 git openjdk-11-jdk-headless maven binfmt-support qemu-user-static && \
     curl -fsSL --insecure https://download.docker.com/linux/debian/gpg | apt-key add - && \
 
     REL=$(lsb_release -cs) && \
