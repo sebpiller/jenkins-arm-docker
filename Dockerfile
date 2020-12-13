@@ -5,9 +5,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN \
     apt-get update -y && \
     apt-get install -y --no-install-recommends --no-install-suggests \
-      systemd wget curl software-properties-common gnupg2 git openjdk-11-jdk-headless maven binfmt-support qemu-user-static && \
-    curl -fsSL --insecure https://download.docker.com/linux/debian/gpg | apt-key add - && \
+      wget curl software-properties-common gnupg2 git openjdk-11-jdk-headless maven && \
 
+    curl -fsSL --insecure https://download.docker.com/linux/debian/gpg | apt-key add - && \
     REL=$(lsb_release -cs) && \
     add-apt-repository "deb https://download.docker.com/linux/debian $REL stable" && \
     apt-get update -y && \
@@ -16,7 +16,6 @@ RUN \
 
     rm -rf /var/lib/apt/lists/* && \
 
-    # install kubectl binary only (to manage a cluster, not run one!)
     wget -O k3s https://github.com/k3s-io/k3s/releases/download/v1.19.5%2Bk3s1/k3s-armhf && \
     mv ./k3s /usr/local/bin/k3s && \
     chmod +x /usr/local/bin/k3s
