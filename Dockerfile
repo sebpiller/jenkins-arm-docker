@@ -5,13 +5,14 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN \
     apt-get update -y && \
     apt-get install -y --no-install-recommends --no-install-suggests \
-      wget curl software-properties-common gnupg2 git openjdk-11-jdk-headless maven binfmt-support qemu-user-static && \
+      openrc wget curl software-properties-common gnupg2 git openjdk-11-jdk-headless maven binfmt-support qemu-user-static && \
     curl -fsSL --insecure https://download.docker.com/linux/debian/gpg | apt-key add - && \
 
     REL=$(lsb_release -cs) && \
     add-apt-repository "deb https://download.docker.com/linux/debian $REL stable" && \
     apt-get update -y && \
-    apt-get install -y docker-ce docker-ce-cli containerd.io && \
+    apt-get install -y --no-install-recommends --no-install-suggests \
+      docker-ce docker-ce-cli containerd.io && \
 
     rm -rf /var/lib/apt/lists/* && \
 
