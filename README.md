@@ -1,9 +1,13 @@
 # jenkins-arm-docker
 
-A docker image containing Java/JDK, Tomcat, Maven, Git, Docker, and k3s (Kubernetes client for ARM), compatible with ARM processors (eg. Raspberry Pi)
+A docker image containing the latest version of Jenkins, Open JDK 11, Tomcat, Maven, Git, Docker, and k3s, 
+compatible with ARM processors (eg. Raspberry Pi). 
 
-1) Run "fetch-binaries.\[sh|bat]" to get the latest binaries versions of Tomcat and Jenkins.
-2) Run "build.\[sh|bat]" to build and push the image to your docker repository.
+This enables you to build Java applications as well as docker images, and manage your kubernetes cluster, 
+all from Jenkins.
+
+1) Run "fetch-binaries.sh" to get the latest binaries versions of Tomcat and Jenkins (not available in Debian repositories).
+2) Run "build.sh" to build a multi arch image and push to your docker repository.
 
 
 ## Troubleshoot
