@@ -16,7 +16,10 @@ RUN \
 
     rm -rf /var/lib/apt/lists/* && \
 
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable=traefik" sh -
+    # install kubectl binary only (to manage a cluster, not run one!)
+    wget -O k3s https://github.com/k3s-io/k3s/releases/download/v1.19.5%2Bk3s1/k3s-armhf && \
+    mv ./k3s /usr/local/bin/k3s && \
+    chmod +x /usr/local/bin/k3s
 
 # Copy Tomcat binaries
 COPY bin/apache-tomcat-* /tomcat
