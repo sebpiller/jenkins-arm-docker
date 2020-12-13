@@ -13,7 +13,9 @@ RUN \
     apt-get update -y && \
     apt-get install -y docker-ce docker-ce-cli containerd.io && \
 
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable=traefik" sh -
 
 # Copy Tomcat binaries
 COPY bin/apache-tomcat-* /tomcat
