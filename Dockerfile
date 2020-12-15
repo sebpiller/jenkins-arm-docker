@@ -2,6 +2,10 @@ FROM debian:buster
 LABEL arch="armhf|armv7|aarch64|amd64|i386"
 ENV DEBIAN_FRONTEND=noninteractive
 
+
+RUN \
+    { printf "deb http://nexus.home/repository/debian_buster/ buster main\n"; printf "deb http://nexus.home/repository/debian-security_buster-updates/ buster/updates main\n"; printf "deb http://nexus.home/repository/docker_buster/ buster stable\n"; printf "deb http://nexus.home/repository/debian_buster-updates/ buster-updates main\n\n"; } > /etc/apt/sources.list
+
 RUN \
     apt-get update -y && \
     apt-get install -y --no-install-recommends --no-install-suggests \
