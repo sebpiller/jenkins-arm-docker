@@ -4,7 +4,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 
 RUN \
-    { printf "deb http://nexus.home/repository/debian_buster/ buster main\n"; printf "deb http://nexus.home/repository/debian-security_buster-updates/ buster/updates main\n"; printf "deb http://nexus.home/repository/docker_buster/ buster stable\n"; printf "deb http://nexus.home/repository/debian_buster-updates/ buster-updates main\n\n"; } > /etc/apt/sources.list
+    { printf "deb http://nexus.home/repository/debian_buster/ buster main\n"; printf "deb http://nexus.home/repository/debian-security_buster-updates/ buster/updates main\n"; printf "deb http://nexus.home/repository/docker_buster/ buster stable\n"; printf "deb http://nexus.home/repository/debian_buster-updates/ buster-updates main\n\n"; } > /etc/apt/sources.list && \
+    sudo apt-key adv --keyserver hkp://nexus.home:80 --recv-keys 7EA0A9C3F273FCD8
 
 RUN \
     apt-get update -y && \
