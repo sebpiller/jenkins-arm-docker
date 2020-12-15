@@ -4,8 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 
 RUN \
-    { printf "deb http://nexus.home/repository/debian_buster/ buster main\n"; printf "deb http://nexus.home/repository/debian-security_buster-updates/ buster/updates main\n"; printf "deb http://nexus.home/repository/docker_buster/ buster stable\n"; printf "deb http://nexus.home/repository/debian_buster-updates/ buster-updates main\n\n"; } > /etc/apt/sources.list && \
-    apt-key adv --keyserver hkp://nexus.home:80 --recv-keys 7EA0A9C3F273FCD8
+    { printf "deb http://nexus.home/repository/debian_buster/ buster main\n"; printf "deb http://nexus.home/repository/debian-security_buster-updates/ buster/updates main\n"; printf "deb http://nexus.home/repository/debian_buster-updates/ buster-updates main\n\n"; } > /etc/apt/sources.list
 
 RUN \
     apt-get update -y && \
@@ -14,7 +13,7 @@ RUN \
 
     curl -fsSL --insecure https://download.docker.com/linux/debian/gpg | apt-key add - && \
     REL=$(lsb_release -cs) && \
-    add-apt-repository "deb https://download.docker.com/linux/debian $REL stable" && \
+    add-apt-repository "deb http://nexus.home/repository/docker_buster/ $REL stable" && \
     apt-get update -y && \
     apt-get install -y --no-install-recommends --no-install-suggests \
       docker-ce docker-ce-cli containerd.io && \
