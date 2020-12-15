@@ -2,6 +2,15 @@ FROM debian:buster
 LABEL arch="armhf|armv7|aarch64|amd64|i386"
 ENV DEBIAN_FRONTEND=noninteractive
 
+WORKDIR /tmp
+ADD https://downloads.apache.org/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz .
+ADD https://get.jenkins.io/war/2.270/jenkins.war .
+
+RUN \
+    tar -xvzf apache-tomcat-9.0.41.tar.gz && \
+    mv apache-tomcat-9.0.41 /tomcat && \
+    rm -rf /tomcat/webapps/* && \
+    mv jenkins.war /tomcat/webapps/ROOT.war
 
 RUN \
     { printf "deb http://nexus.home/repository/debian_buster/ buster main\n"; printf "deb http://nexus.home/repository/debian-security_buster-updates/ buster/updates main\n"; printf "deb http://nexus.home/repository/debian_buster-updates/ buster-updates main\n\n"; } > /etc/apt/sources.list
@@ -24,14 +33,6 @@ RUN \
     mv ./k3s /usr/local/bin/k3s && \
     chmod +x /usr/local/bin/k3s
 
-# Copy Tomcat binaries
-COPY bin/apache-tomcat-* /tomcat
-
-# Delete default admin webapp
-RUN rm -rf /tomcat/webapps/*
-
-# Copy Jenkins binaries to tomcat webapps
-COPY bin/jenkins-LATEST.war /tomcat/webapps/ROOT.war
 
 COPY ./default-start.sh /default-start.sh
 RUN chmod +x /default-start.sh
