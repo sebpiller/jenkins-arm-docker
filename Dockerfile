@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /tmp
 ADD https://downloads.apache.org/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz .
-ADD https://get.jenkins.io/war/2.275/jenkins.war .
+ADD https://get.jenkins.io/war/2.276/jenkins.war .
 
 RUN \
     tar -xvzf apache-tomcat-9.0.41.tar.gz && \
