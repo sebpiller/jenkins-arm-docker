@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:buster
 LABEL arch="armv7|amd64"
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -18,8 +18,8 @@ RUN \
 RUN \
     apt-get update -y && \
     apt-get install -y --no-install-recommends --no-install-suggests \
-      wget curl software-properties-common gnupg2 git  && \
-      openjdk-11-jdk-headless maven && \
+      wget curl software-properties-common gnupg2 git \
+      openjdk-11-jdk-headless maven \
       npm nodejs && \
 
     curl -fsSL --insecure https://download.docker.com/linux/debian/gpg | apt-key add - && \
