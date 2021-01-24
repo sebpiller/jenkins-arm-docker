@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:buster
 LABEL arch="armhf|armv7|aarch64|amd64|i386"
 ENV DEBIAN_FRONTEND=noninteractive
 
