@@ -1,8 +1,7 @@
-FROM debian:buster
-LABEL arch="armhf|armv7|aarch64|amd64|i386"
+FROM debian:bullseye
+LABEL arch="armv7|amd64"
 ENV DEBIAN_FRONTEND=noninteractive
 
-WORKDIR /tmp
 ADD https://downloads.apache.org/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz .
 ADD https://get.jenkins.io/war/2.276/jenkins.war .
 
@@ -20,7 +19,7 @@ RUN \
     apt-get update -y && \
     apt-get install -y --no-install-recommends --no-install-suggests \
       wget curl software-properties-common gnupg2 git  && \
-      openjdk-14-jdk-headless maven && \
+      openjdk-11-jdk-headless maven && \
       npm nodejs && \
 
     curl -fsSL --insecure https://download.docker.com/linux/debian/gpg | apt-key add - && \
