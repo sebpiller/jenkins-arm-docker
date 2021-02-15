@@ -31,7 +31,7 @@ RUN \
 
     rm -rf /var/lib/apt/lists/* && \
 
-    wget -O k3s https://github.com/k3s-io/k3s/releases/download/v1.19.5%2Bk3s1/k3s-armhf && \
+    wget -O k3s https://github.com/k3s-io/k3s/releases/download/v1.20.2%2Bk3s1/k3s-armhf && \
     mv ./k3s /usr/local/bin/k3s && \
     chmod +x /usr/local/bin/k3s
 
