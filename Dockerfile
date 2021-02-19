@@ -1,9 +1,9 @@
 FROM debian:buster
-LABEL arch="armv7|amd64"
+LABEL arch="arm|arm64"
 ENV DEBIAN_FRONTEND=noninteractive
 
 ADD https://downloads.apache.org/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz .
-ADD https://get.jenkins.io/war/2.279/jenkins.war .
+ADD https://get.jenkins.io/war/2.280/jenkins.war .
 
 RUN \
     tar -xvzf apache-tomcat-9.0.41.tar.gz && \
@@ -24,8 +24,8 @@ RUN \
 
     curl -fsSL --insecure https://download.docker.com/linux/debian/gpg | apt-key add - && \
     REL=$(lsb_release -cs) && \
-    # add-apt-repository "deb http://nexus.home/repository/docker_buster/ $REL stable" && \
-    # apt-get update -y && \
+    add-apt-repository "deb http://nexus.home/repository/docker_buster/ $REL stable" && \
+    apt-get update -y && \
     apt-get install -y --no-install-recommends --no-install-suggests \
       docker-ce docker-ce-cli containerd.io && \
 
