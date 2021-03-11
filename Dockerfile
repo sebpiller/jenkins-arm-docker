@@ -2,7 +2,7 @@ FROM debian:buster
 LABEL arch="arm|arm64"
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG tomcat=https://downloads.apache.org/tomcat/tomcat-10/v10.0.2/bin/apache-tomcat-10.0.2.tar.gz
+ARG tomcat=https://downloads.apache.org/tomcat/tomcat-9/v9.0.43/bin/apache-tomcat-9.0.43.tar.gz
 ARG jenkins=https://get.jenkins.io/war/2.283/jenkins.war
 
 ADD $tomcat .
@@ -10,8 +10,8 @@ ADD $jenkins .
 
 RUN \
     ls -lah && \
-    tar -xvzf apache-tomcat-10.0.2.tar.gz && \
-    mv apache-tomcat-10.0.2 /tomcat && \
+    tar -xvzf apache-tomcat-9.0.43.tar.gz && \
+    mv apache-tomcat-9.0.43 /tomcat && \
     rm -rf /tomcat/webapps/* && \
     mv jenkins.war /tomcat/webapps/ROOT.war && \
     rm -rf /tmp/*
@@ -27,6 +27,7 @@ RUN \
       npm nodejs && \
 
     curl -fsSL --insecure https://download.docker.com/linux/debian/gpg | apt-key add - && \
+
     REL=$(lsb_release -cs) && \
     add-apt-repository "deb http://nexus.home/repository/docker_buster/ $REL stable" && \
     apt-get update -y && \
