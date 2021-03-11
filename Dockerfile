@@ -2,16 +2,19 @@ FROM debian:buster
 LABEL arch="arm|arm64"
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG tomcat=https://downloads.apache.org/tomcat/tomcat-9/v9.0.43/bin/apache-tomcat-9.0.43.tar.gz
-ARG jenkins=https://get.jenkins.io/war/2.283/jenkins.war
+ARG tcversion=9.0.43
+ARG jenkinsversion=2.283
+
+ARG tomcat=https://downloads.apache.org/tomcat/tomcat-9/v$tcversion/bin/apache-tomcat-$tcversion.tar.gz
+ARG jenkins=https://get.jenkins.io/war/$jenkinsversion/jenkins.war
 
 ADD $tomcat .
 ADD $jenkins .
 
 RUN \
     ls -lah && \
-    tar -xvzf apache-tomcat-9.0.43.tar.gz && \
-    mv apache-tomcat-9.0.43 /tomcat && \
+    tar -xvzf apache-tomcat-$tcversion.tar.gz && \
+    mv apache-tomcat-$tcversion /tomcat && \
     rm -rf /tomcat/webapps/* && \
     mv jenkins.war /tomcat/webapps/ROOT.war && \
     rm -rf /tmp/*
