@@ -9,8 +9,9 @@ ADD $tomcat .
 ADD $jenkins .
 
 RUN \
-    tar -xvzf apache-tomcat-*.tar.gz && \
-    mv apache-tomcat-* /tomcat && \
+    ls -lah && \
+    tar -xvzf apache-tomcat-10.0.2.tar.gz && \
+    mv apache-tomcat-10.0.2 /tomcat && \
     rm -rf /tomcat/webapps/* && \
     mv jenkins.war /tomcat/webapps/ROOT.war && \
     rm -rf /tmp/*
