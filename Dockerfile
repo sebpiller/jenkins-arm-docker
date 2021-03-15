@@ -10,7 +10,7 @@ ARG tomcat=https://downloads.apache.org/tomcat/tomcat-9/v$tcversion/bin/apache-t
 ARG jenkins=https://get.jenkins.io/war/$jenkinsversion/jenkins.war
 
 # ARG dockerrepo=http://nexus.home/repository/docker_buster/
-ARG dockerrepo=https://download.docker.com/linux/debian/dists/
+ARG dockerrepo=https://download.docker.com/linux/debian/
 
 ADD $tomcat .
 ADD $jenkins .
