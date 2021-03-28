@@ -1,0 +1,3 @@
+#!/bin/bash
+# install qemu on docker-hub build machines
+sudo apt-get install qemu-user-static
