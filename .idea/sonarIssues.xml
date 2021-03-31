@@ -13,6 +13,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../epg-scrapper-cli/src/it/java/ch/sebpiller/epg/scrapper/tsr/RtsEpgScrapperIntegrationTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../epg-scrapper-cli/src/main/java/ch/sebpiller/epg/scrapper/tsr/RtsEpgScrapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Dockerfile">
           <value>
             <set />
@@ -124,6 +134,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../smart-lamp/smart-lamp-sequencer/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../steganographie/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../steganographie/src/main/java/ch/sebpiller/stegano/impl/SteganoServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../steganographie/src/test/java/ch/sebpiller/stegano/impl/SteganoServiceImplParameterizedTest.java">
           <value>
             <set />
           </value>
