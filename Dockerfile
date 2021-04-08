@@ -2,7 +2,7 @@ FROM debian:buster
 LABEL arch="arm|arm64"
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG tcversion=9.0.44
+ARG tcversion=9.0.45
 ARG jenkinsversion=2.287
 ARG k3sversion=1.20.4%2Bk3s1
 
