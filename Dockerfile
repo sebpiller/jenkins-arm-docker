@@ -3,7 +3,7 @@ LABEL arch="arm|arm64"
 ENV DEBIAN_FRONTEND=noninteractive
 
 ARG tcversion=9.0.45
-ARG jenkinsversion=2.287
+ARG jenkinsversion=2.288
 ARG k3sversion=1.20.4%2Bk3s1
 
 ARG tomcat=https://downloads.apache.org/tomcat/tomcat-9/v$tcversion/bin/apache-tomcat-$tcversion.tar.gz
